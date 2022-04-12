@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="doft.css"/>
+	</head>
+	<body>
+		<div id="entrez-floater" class="entrez-floater-class round-corners">
+			<span class="entrez-regular">Vous </span>
+			<span class="entrez-large">entrez</span>
+			<span class="entrez-regular"> alors dans une grande piece remplie d'<span style="text-shadow: 4px 7px 4px red;">ordinateurs</span>...</span>
+			<br />
+			<span class="entrez-regular">- <i>Bonjour, vous êtes nouveau ici ?</i></span>
+			<br />
+			<input id="response-input">
+			<button id="button">Repondre</button>
+		</div>
+		<div id="top-floater" class="round-corners floater">
+			<img id="day-of-the-42" src="resources/day_of_the_42.png" />
+			<img id="magnifying-glass" src="resources/loupe.png" />
+			<div id="close-and-reload-buttons">
+				<a href="https://www.disney.com">
+					<img id="reload-button" src="resources/reload.png" 
+					title="Start from the beginning" 
+					alt="Start from the beginning" />
+				</a>
+				<a href="https://www.relaischateaux.com">
+					<img id="close-button" src="resources/close.gif" 
+					title="Disconnect"
+					alt="Disconnect" />
+				</a>
+			</div>
+		</div>
+		<div id="floaters">
+			<div id="left-floater" class="round-corners floater">
+				<img id="img-arrow" src="resources/arrow.png" title="Move" alt="Move" />
+				<img id="img-main" src="resources/main.png" title="Take" alt="Take" />
+				<img id="img-oeil" src="resources/oeil.png" title="Look" alt="Look" />
+				<img id="img-outil" src="resources/outil.png" title="Use" alt="Use" />
+				<img id="img-chat-icon" src="resources/chat-icon.png" title="Speak" alt="Speak" />
+			</div>
+			<div id="center-floater" class="round-corners floater">
+				<img id="img-cluster" src="resources/cluster.jpg" usemap="#areas" />
+				<map name="areas">
+					<area shape="rect" coords="380,370,580,700" href="https://www.ikea.com" alt="ikea-chair">
+					<area shape="rect" coords="780,350,980,550" href="https://www.apple.com" alt="macintosh">
+				</map>
+			</div>
+			<div id="right-floater" class="round-corners floater">
+				<img id="img-book" src="resources/book.png" title="don't-panic" alt="panic-book" />
+				<img id="img-towel" src="resources/towel.png" title="folded-towel" alt="folded-towel" />
+				<div id="img-bricks" title="brick-wall" alt="brick-wall"></div>
+			</div>
+		</div>
+		<img src="resources/doft.jpg" hidden/>
+	</body>
+</html>

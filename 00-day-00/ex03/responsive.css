@@ -1,0 +1,96 @@
+img.center
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 15vw;
+}
+table
+{
+	padding: 2vmax;
+}
+th, td
+{
+	text-align: center;
+	border: 0.1vw solid black;
+}
+table.center
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+td.element
+{
+	font-size: 0.42vw;
+	width: 1.5vw;
+	min-width: 1vw;
+}
+td.empty-element
+{
+	opacity: 0.42;
+	border: none;
+}
+div.center {
+	font-size: 1.75vw;
+	margin-left: auto;
+	margin-right: auto;
+	width: 3vw;
+}
+div.atomic-container
+{
+	display: flex;
+	justify-content: space-between;
+}
+div.atomic-number
+{
+	font-size: 0.3vw;
+}
+div.atomic-weight
+{
+	font-size: 0.3vw;
+}
+td.reactive-non-metals
+{
+	background-color: rgb(89, 135, 58);
+}
+td.alkali-metals
+{
+	background-color: rgb(165, 69, 69);
+}
+td.alkaline-earth-metals
+{
+	background-color: rgb(141, 210, 244);
+}
+td.transition-metals
+{
+	background-color: rgb(156, 210, 101);
+}
+td.post-transition-metals
+{
+	background-color: rgb(0, 195, 255);
+}
+td.metalloids
+{
+	background-color: rgb(102, 255, 204);
+}
+td.noble-gases
+{
+	background-color: rgb(204, 153, 255);
+}
+td.default
+{
+	background-color: rgb(106, 116, 255);
+}
+td.lanthanoids
+{
+	background-color: rgb(58, 78, 50);
+}
+td.actinoids
+{
+	background-color: rgb(204, 0, 102);
+}
+
+#mendeleev-disappear:hover
+{
+	opacity: 0;
+}

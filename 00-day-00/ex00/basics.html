@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Basics</title>
+	<style>
+		body {background-color: pink;}
+		h1 {color: #FFF; text-align: center;}
+		.container {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+		}
+		.item {
+			display: flex;
+			padding: 10em;
+			flex-direction: column;
+			justify-content: center;
+		}
+		#verkkokauppa
+		{
+			align-self: center;
+			width: 72%;
+		}
+		#jimms
+		{
+			align-self: center;
+			width: 72%;
+		}
+		a {align-self: center;}
+		#watermark
+		{
+			float: right;
+			font-family: monospace;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<h1>Filé</h1>
+	<div class="container">
+		<div class="item">
+			<img id="verkkokauppa" src="https://upload.wikimedia.org/wikipedia/fi/4/42/Verkkokauppa.com_logo.svg" alt="VERKKOKAUPPA"/>
+			<a href="https://www.verkkokauppa.com/">Verkkokauppa</a>
+		</div>
+		<div class="item">
+			<img id="jimms" src="https://upload.wikimedia.org/wikipedia/fi/0/09/Jimms.png" alt="JIMM'S"/>
+			<a href="https://www.jimms.fi/">Jimm's</a>
+		</div>
+	</div>
+	<hr />
+	<div id="watermark">© thakala 2022</div>
+</body>
+</html>
