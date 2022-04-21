@@ -1,0 +1,16 @@
+
+<- Vertex ----------------------------------------------------------------------
+
+The Vertex class handles Vertices.
+
+An instance can be constructed from an array:
+    new Vertex ( array( 'x' => <x = 0.0>, 'y' => <y = 0.0>, 'z' => <z = 0.0>,
+        'w' => <w = 1.0>, 'color' => <color = 0xFFFFFF> ) );
+where all keys are optional with the default values as assigned.
+
+The values corresponding to the keys x, y, z, w are numerals
+    whereas color is an instance of the Color class.
+
+All of the attributes are private and the accessor methods are defined.
+
+---------------------------------------------------------------------- Vertex ->
