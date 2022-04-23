@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<style>
+			body
+			{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.0.js"
+			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			crossorigin="anonymous">
+		</script>
+		<script>
+			function calculate()
+			{
+				let regexp = /^\+?\d+((e\d+)?|n)$/;
+				let left = $("#left-operand").val().replace(/(.*)n$/, '$1');
+				let operator = $("#operator").val();
+				let right = $("#right-operand").val().replace(/(.*)n$/, '$1');
+				if (left.match(regexp) === null || right.match(regexp) === null)
+				{
+					alert("Error :(");
+					return ;
+				}
+				let n_left = Number(left);
+				let n_right = Number(right);
+				if ((Number.isSafeInteger(n_left) && Number.isSafeInteger(n_right)) === false)
+				{
+					n_left = BigInt(left);
+					n_right = BigInt(right);
+				}
+				if (n_left >= 0 && n_right >= 0)
+				{
+					let result;
+					if (operator === '+')
+						result = n_left + n_right;
+					else if (operator === '-')
+						result = n_left - n_right;
+					else if (operator === '*')
+						result = n_left * n_right;
+					else if (operator === '/')
+					{
+						if (n_right === 0n || n_right === 0)
+							result = "It's over 9000!";
+						else
+							result = n_left / n_right;
+					}
+					else if (operator === '%')
+					{
+						if (n_right === 0n || n_right === 0)
+							result = "It's over 9000!";
+						else
+							result = n_left % n_right;
+					}
+					console.log(result.toString());
+					alert(result.toString());
+				}
+				else
+					alert("Error :(");
+			}
+			$(function() {
+				beg();
+
+				function beg() {
+					if (jQuery.type(beg.first) === 'undefined')
+						beg.first = true;
+					setTimeout(beg, 30000);
+					if (beg.first === true)
+						beg.first = false;
+					else
+						alert("Please, use me...")
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="calculator">
+			<input id="left-operand" type="text">
+			<select id="operator">
+				<option>+</option>
+				<option>-</option>
+				<option>*</option>
+				<option>/</option>
+				<option>%</option>
+			</select>
+			<input id="right-operand" type="text">
+			<input type="submit" value="Try me!" onclick="calculate()">
+		</div>
+	</body>
+</html>

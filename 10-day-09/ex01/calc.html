@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<style>
+			body
+			{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		</style>
+		<script>
+			function calculate()
+			{
+				let regexp = /^\+?\d+((e\d+)?|n)$/;
+				let left = document.getElementById("left-operand").value.replace(/(.*)n$/, '$1');
+				let operator = document.getElementById("operator").value;
+				let right = document.getElementById("right-operand").value.replace(/(.*)n$/, '$1');
+				if (left.match(regexp) === null || right.match(regexp) === null)
+				{
+					alert("Error :(");
+					return ;
+				}
+				let n_left = Number(left);
+				let n_right = Number(right);
+				if ((Number.isSafeInteger(n_left) && Number.isSafeInteger(n_right)) === false)
+				{
+					n_left = BigInt(left);
+					n_right = BigInt(right);
+				}
+				if (n_left >= 0 && n_right >= 0)
+				{
+					let result;
+					if (operator === '+')
+						result = n_left + n_right;
+					else if (operator === '-')
+						result = n_left - n_right;
+					else if (operator === '*')
+						result = n_left * n_right;
+					else if (operator === '/')
+					{
+						if (n_right === 0n || n_right === 0)
+							result = "It's over 9000!";
+						else
+							result = n_left / n_right;
+					}
+					else if (operator === '%')
+					{
+						if (n_right === 0n || n_right === 0)
+							result = "It's over 9000!";
+						else
+							result = n_left % n_right;
+					}
+					console.log(result.toString());
+					alert(result.toString());
+				}
+				else
+					alert("Error :(");
+			}
+			window.setInterval(function(){alert("Please, use me...")}, 30000);
+		</script>
+	</head>
+	<body>
+		<div class="calculator">
+			<input id="left-operand" type="text">
+			<select id="operator">
+				<option>+</option>
+				<option>-</option>
+				<option>*</option>
+				<option>/</option>
+				<option>%</option>
+			</select>
+			<input id="right-operand" type="text">
+			<input type="submit" value="Try me!" onclick="calculate()">
+		</div>
+	</body>
+</html>

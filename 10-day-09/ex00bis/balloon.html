@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<style>
+			body
+			{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			#balloon
+			{
+				width: 200px;
+				min-width: 200px;
+				max-width: 420px;
+				height: 200px;
+				min-height: 200px;
+				max-height: 420px;
+				background-color: red;
+				border-radius: 50%;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.0.js"
+			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			crossorigin="anonymous">
+		</script>
+		<script>
+			var is_clicked = false;
+
+			jQuery.fn.extend({
+				grow: function ft_grow(amount)
+				{
+					var changed = true;
+
+					is_clicked = true;
+					console.log ("ftgrow called " + amount);
+					if (jQuery.type(ft_grow.size) === 'undefined')
+						ft_grow.size = 200;
+					ft_grow.size += amount;
+					if (ft_grow.size < 200)
+					{
+						changed = false;
+						ft_grow.size = 200;
+					}
+					else if (ft_grow.size > 420)
+						ft_grow.size = 200;
+					if (jQuery.type(ft_grow.color) === 'undefined')
+						ft_grow.color = 'red';
+					if (amount > 0)
+					{
+						if (ft_grow.color === 'blue')
+							ft_grow.color = 'red';
+						else if (ft_grow.color === 'red')
+							ft_grow.color = 'green';
+						else if (ft_grow.color === 'green')
+							ft_grow.color = 'blue';
+					}
+					else if (changed === true)
+					{
+						if (ft_grow.color === 'blue')
+							ft_grow.color = 'green';
+						else if (ft_grow.color === 'green')
+							ft_grow.color = 'red';
+						else if (ft_grow.color === 'red')
+							ft_grow.color = 'blue';
+					}
+					$("#balloon").css("width", ft_grow.size);
+					$("#balloon").css("height", ft_grow.size);
+					$("#balloon").css("background-color", ft_grow.color);
+
+				},
+				shrink: function ft_shrink(amount)
+				{
+					if (is_clicked === false)
+						jQuery.fn.grow(-amount);
+					is_clicked = false;
+				}
+			});
+			$(window).on("load", function()
+			{
+				$("#balloon").on("click", function () {$.fn.grow(10);});
+				$("#balloon").on("mouseleave", function () {$.fn.shrink(5);});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="balloon"></div>
+	</body>
+</html>

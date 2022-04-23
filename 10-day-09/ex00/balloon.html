@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<style>
+			body
+			{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			#balloon
+			{
+				width: 200px;
+				min-width: 200px;
+				max-width: 420px;
+				height: 200px;
+				min-height: 200px;
+				max-height: 420px;
+				background-color: red;
+				border-radius: 50%;
+			}
+		</style>
+		<script type="application/javascript">
+			let is_clicked = false;
+
+			function grow(amount)
+			{
+				let changed = true;
+				is_clicked = true;
+				if (typeof grow.size === 'undefined')
+					grow.size = 200;
+				grow.size += amount;
+				if (grow.size < 200)
+				{
+					changed = false;
+					grow.size = 200;
+				}
+				else if (grow.size > 420)
+					grow.size = 200;
+				if (typeof grow.color === 'undefined')
+					grow.color = 'red';
+				if (amount > 0)
+				{
+					if (grow.color === 'blue')
+						grow.color = 'red';
+					else if (grow.color === 'red')
+						grow.color = 'green';
+					else if (grow.color === 'green')
+						grow.color = 'blue';
+				}
+				else if (changed === true)
+				{
+					if (grow.color === 'blue')
+						grow.color = 'green';
+					else if (grow.color === 'green')
+						grow.color = 'red';
+					else if (grow.color === 'red')
+						grow.color = 'blue';
+				}
+				var balloon = document.getElementById("balloon");
+				balloon.style.height = grow.size + "px";
+				balloon.style.width = grow.size + "px";
+				balloon.style.backgroundColor = grow.color;
+			}
+
+			function shrink(amount)
+			{
+				if (is_clicked === false)
+					grow(-amount);
+				is_clicked = false;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="balloon" onclick="grow(10)" onmouseleave="shrink(5)"></div>
+	</body>
+</html>
