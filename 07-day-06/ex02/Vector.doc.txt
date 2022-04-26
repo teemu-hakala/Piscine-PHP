@@ -1,0 +1,42 @@
+
+<- Vector ----------------------------------------------------------------------
+The Vector class allows the creation of
+    right-handed three-dimensional vectors.
+
+A vector is instantiated from a destination Vertex 'dest',
+    and an optional origin Vertex 'orig':
+
+new Vector( array( 'dest' => <Vertex>[, 'orig' => <Vertex>] ) );
+
+The 'orig' Vertex defaults to:
+    ['x' => 0, 'y' => 0, 'z' => 0, 'w' => 1].
+
+
+The Vector class has the methods:
+float   magnitude()
+    Length of the vector.
+
+Vector  normalize()
+    Normalized vector.
+
+Vector  add( Vector $rhs )
+    Component addition.
+
+Vector  sub( Vector $rhs )
+    Component subtraction.
+
+Vector  opposite()
+    Opposite of the current Vector.
+
+Vector  scalarProduct( $k )
+    Scalar product of the vector with $k.
+
+float   dotProduct( Vector $rhs )
+    Dot product of two Vector instances.
+
+float   cos( Vector $rhs )
+    Cosine of the angle between the two vectors.
+
+Vector  crossProduct( Vector $rhs )
+    Cross product of the two Vector instances.
+---------------------------------------------------------------------- Vector ->
